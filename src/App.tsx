@@ -14,6 +14,10 @@ function App() {
     (guessedLetter) => !wordToGuess.includes(guessedLetter)
   );
 
+  const correctGuessedLetters: string[] = guessedLetters.filter(
+    (guessedLetter) => wordToGuess.includes(guessedLetter)
+  );
+
   const handleAddGuessedLetters = useCallback(
     (letter: string) => {
       if (guessedLetters.includes(letter)) return;
@@ -35,7 +39,11 @@ function App() {
       <HangmanDrawing numberOfWrongGuess={wrongGuessedLetters.length} />
       <HangmanWord guessedLetters={guessedLetters} wordToGuess={wordToGuess} />
       <div style={{ alignSelf: "stretch" }}>
-        <Keyboard onAddGuessedLetters={handleAddGuessedLetters} />
+        <Keyboard
+          onAddGuessedLetters={handleAddGuessedLetters}
+          wrongGuessedLetters={wrongGuessedLetters}
+          correctGuessedLetters={correctGuessedLetters}
+        />
       </div>
     </div>
   );

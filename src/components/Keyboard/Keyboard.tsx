@@ -30,21 +30,40 @@ const KEYS = [
 ];
 
 type KeyboardProps = {
+  wrongGuessedLetters: string[];
+  correctGuessedLetters: string[];
   onAddGuessedLetters: (letter: string) => void;
 };
 
-function Keyboard({ onAddGuessedLetters }: KeyboardProps) {
+function Keyboard({
+  correctGuessedLetters,
+  wrongGuessedLetters,
+  onAddGuessedLetters,
+}: KeyboardProps) {
   return (
     <div className={styles.keyboardContainer}>
-      {KEYS.map((key, index) => (
-        <button
-          className={`${styles.key} `}
-          key={index}
-          onClick={() => onAddGuessedLetters(key)}
-        >
-          {key}
-        </button>
-      ))}
+      {KEYS.map((key, index) => {
+        const isDisabled =
+          correctGuessedLetters.includes(key) ||
+          wrongGuessedLetters.includes(key);
+
+        const activeOrInactive = correctGuessedLetters.includes(key)
+          ? styles.active
+          : wrongGuessedLetters.includes(key)
+          ? styles.inactive
+          : "";
+
+        return (
+          <button
+            disabled={isDisabled}
+            className={`${styles.key}  ${activeOrInactive} `}
+            key={index}
+            onClick={() => onAddGuessedLetters(key)}
+          >
+            {key}
+          </button>
+        );
+      })}
     </div>
   );
 }
