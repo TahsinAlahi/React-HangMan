@@ -8,22 +8,18 @@ function App() {
   const [wordToGuess, setWordToGuess] = useState(() => {
     return words[Math.floor(Math.random() * words.length)];
   });
-
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
+
+  const wrongGuessedLetters: string[] = guessedLetters.filter(
+    (guessedLetter) => !wordToGuess.includes(guessedLetter)
+  );
+
+  function handleAddGuessedLetters(letter: string) {
+    setGuessedLetters((letters: string[]) => [...letters, letter]);
+  }
+
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: "1.5rem",
-        width: "50%",
-        maxWidth: "800px",
-        height: "100vh",
-        margin: "0 auto",
-        padding: "1rem",
-      }}
-    >
+    <div className="container">
       <div
         style={{
           fontSize: "2rem",
@@ -32,7 +28,7 @@ function App() {
       >
         Win or Lose
       </div>
-      <HangmanDrawing />
+      <HangmanDrawing numberOfWrongGuess={wrongGuessedLetters.length} />
       <HangmanWord />
       <div style={{ alignSelf: "stretch" }}>
         <Keyboard />
