@@ -2,7 +2,7 @@ import { useState } from "react";
 import words from "./wordList.json";
 import HangmanDrawing from "./components/HangmanDrawing/HangmanDrawing";
 import HangmanWord from "./components/HangmanWord/HangmanWord";
-import Keyboard from "./components/Keyboard";
+import Keyboard from "./components/Keyboard/Keyboard";
 
 function App() {
   const [wordToGuess, setWordToGuess] = useState(() => {
@@ -16,12 +16,12 @@ function App() {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        gap: "2rem",
+        gap: "1.5rem",
         width: "50%",
         maxWidth: "800px",
         height: "100vh",
         margin: "0 auto",
-        padding: "2rem",
+        padding: "1rem",
       }}
     >
       <div
@@ -34,7 +34,9 @@ function App() {
       </div>
       <HangmanDrawing />
       <HangmanWord />
-      <Keyboard />
+      <div style={{ alignSelf: "stretch" }}>
+        <Keyboard />
+      </div>
     </div>
   );
 }

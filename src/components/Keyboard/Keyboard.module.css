@@ -1,0 +1,37 @@
+.keyboardContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+  gap: 0.5rem;
+}
+
+.key {
+  padding: 0.5rem 2rem;
+  border: 3px solid black;
+  border-radius: 15px;
+  background-color: transparent;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 2rem;
+  font-family: monospace;
+  text-transform: uppercase;
+  font-weight: bold;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.key.active {
+  background-color: hsl(200, 100%, 50%);
+  color: white;
+}
+
+.key.inactive {
+  opacity: 0.3;
+}
+
+.key:hover:not(:disabled) {
+  background-color: hsl(200, 100%, 75%);
+}

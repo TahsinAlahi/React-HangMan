@@ -6,8 +6,8 @@ const triedLetters = ["t", "s", "c"];
 function HangmanWord() {
   return (
     <div className={styles.wordsContainer}>
-      {word.split("").map((letter) => (
-        <span className={styles.letter}>
+      {word.split("").map((letter, index) => (
+        <span className={styles.letter} key={index}>
           <span
             style={{
               visibility: triedLetters.includes(letter) ? "visible" : "hidden",
