@@ -1,0 +1,12 @@
+.wordsContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  font-family: monospace;
+  font-size: 4.5rem;
+}
+
+.letter {
+  border-bottom: 0.5rem solid black;
+}

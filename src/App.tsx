@@ -1,7 +1,7 @@
 import { useState } from "react";
 import words from "./wordList.json";
-import HangmanDrawing from "./components/HangmanDrawing";
-import HangmanWord from "./components/HangmanWord";
+import HangmanDrawing from "./components/HangmanDrawing/HangmanDrawing";
+import HangmanWord from "./components/HangmanWord/HangmanWord";
 import Keyboard from "./components/Keyboard";
 
 function App() {
