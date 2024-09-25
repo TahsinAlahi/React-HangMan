@@ -1,0 +1,94 @@
+.drawingContainer {
+  position: relative;
+  background-color: orange;
+}
+
+.stand {
+  height: 10px;
+  width: 200px;
+  background-color: black;
+}
+
+.bar {
+  height: 250px;
+  width: 10px;
+  background-color: black;
+  margin-left: 100px;
+}
+
+.handle {
+  transform-origin: 0;
+  width: 250px;
+  height: 10px;
+  margin-left: 100px;
+  background-color: black;
+}
+
+.rope {
+  width: 10px;
+  height: 50px;
+  background-color: black;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.head {
+  height: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 5px solid black;
+  position: absolute;
+  top: 50px;
+  right: 0px;
+  translate: 40% -1%;
+}
+
+.body {
+  width: 8px;
+  height: 80px;
+  background-color: black;
+  position: absolute;
+  top: 98px;
+  right: 0px;
+}
+
+.rightArm,
+.leftArm {
+  width: 8px;
+  height: 55px;
+  background-color: black;
+  position: absolute;
+  top: 130px;
+  right: 0px;
+
+  transform-origin: top;
+}
+
+.rightArm {
+  rotate: 120deg;
+}
+
+.leftArm {
+  rotate: -120deg;
+}
+
+.leftLeg,
+.rightLeg {
+  width: 8px;
+  height: 55px;
+  background-color: black;
+  position: absolute;
+  top: 178px;
+  right: 0px;
+
+  transform-origin: top;
+}
+
+.leftLeg {
+  rotate: 20deg;
+}
+
+.rightLeg {
+  rotate: -20deg;
+}

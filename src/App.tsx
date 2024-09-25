@@ -19,7 +19,9 @@ function App() {
         gap: "2rem",
         width: "50%",
         maxWidth: "800px",
+        height: "100vh",
         margin: "0 auto",
+        padding: "2rem",
       }}
     >
       <div
