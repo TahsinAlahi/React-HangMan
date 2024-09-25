@@ -29,11 +29,19 @@ const KEYS = [
   "z",
 ];
 
-function Keyboard() {
+type KeyboardProps = {
+  onAddGuessedLetters: (letter: string) => void;
+};
+
+function Keyboard({ onAddGuessedLetters }: KeyboardProps) {
   return (
     <div className={styles.keyboardContainer}>
       {KEYS.map((key, index) => (
-        <button className={`${styles.key} `} key={index}>
+        <button
+          className={`${styles.key} `}
+          key={index}
+          onClick={() => onAddGuessedLetters(key)}
+        >
           {key}
         </button>
       ))}

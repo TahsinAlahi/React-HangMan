@@ -31,7 +31,7 @@ function App() {
       <HangmanDrawing numberOfWrongGuess={wrongGuessedLetters.length} />
       <HangmanWord />
       <div style={{ alignSelf: "stretch" }}>
-        <Keyboard />
+        <Keyboard onAddGuessedLetters={handleAddGuessedLetters} />
       </div>
     </div>
   );
