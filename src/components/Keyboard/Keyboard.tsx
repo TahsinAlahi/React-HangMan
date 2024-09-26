@@ -30,22 +30,25 @@ const KEYS = [
 ];
 
 type KeyboardProps = {
-  wrongGuessedLetters: string[];
   correctGuessedLetters: string[];
+  wrongGuessedLetters: string[];
   onAddGuessedLetters: (letter: string) => void;
+  disabled: boolean;
 };
 
 function Keyboard({
   correctGuessedLetters,
   wrongGuessedLetters,
   onAddGuessedLetters,
+  disabled,
 }: KeyboardProps) {
   return (
     <div className={styles.keyboardContainer}>
       {KEYS.map((key, index) => {
         const isDisabled =
           correctGuessedLetters.includes(key) ||
-          wrongGuessedLetters.includes(key);
+          wrongGuessedLetters.includes(key) ||
+          disabled;
 
         const activeOrInactive = correctGuessedLetters.includes(key)
           ? styles.active
