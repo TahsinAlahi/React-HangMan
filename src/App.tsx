@@ -1,13 +1,15 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import words from "./wordList.json";
 import HangmanDrawing from "./components/HangmanDrawing/HangmanDrawing";
 import HangmanWord from "./components/HangmanWord/HangmanWord";
 import Keyboard from "./components/Keyboard/Keyboard";
 
+function getWord() {
+  return words[Math.floor(Math.random() * words.length)];
+}
+
 function App() {
-  const [wordToGuess] = useState(() => {
-    return words[Math.floor(Math.random() * words.length)];
-  });
+  const [wordToGuess, setWordToGuess] = useState(getWord);
 
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
 
@@ -31,6 +33,22 @@ function App() {
     },
     [guessedLetters]
   );
+
+  useEffect(() => {
+    function handleEvent(e: KeyboardEvent) {
+      if (e.key !== "Enter") return;
+
+      e.preventDefault();
+      setGuessedLetters([]);
+      setWordToGuess(getWord());
+    }
+
+    document.addEventListener("keydown", handleEvent);
+
+    return () => {
+      document.removeEventListener("keydown", handleEvent);
+    };
+  }, []);
 
   return (
     <div className="container">
